@@ -1,4 +1,4 @@
-﻿# mybatis学习笔记(2)-mybatis概述
+﻿# 02 mybatis概述
 
 标签： mybatis
 
@@ -97,13 +97,3 @@ SqlMapConfig.xml配置文件：可以配置properties属性、别名、mapper加
    - where
    - foreach
    - sql片段（掌握）
-
-
-
-
-
-----
-
-> 作者[@brianway](http://brianway.github.io/)更多文章：[个人网站](http://brianway.github.io/) | [CSDN](http://blog.csdn.net/h3243212/) | [oschina](http://my.oschina.net/brianway)
-
-
