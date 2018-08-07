@@ -14,8 +14,16 @@
 
 ---
 
+mybatis核心：对sql语句进行灵活操作，通过表达式进行判断，对sql进行灵活拼接、组装。
 
-mybatis核心,对sql语句进行灵活操作，通过表达式进行判断，对sql进行灵活拼接、组装。
+
+
+**需求**
+
+- 用户信息综合查询列表和用户信息查询列表总数这两个statement的定义使用动态sql。
+- 对查询条件进行判断，如果输入参数不为空才进行查询条件拼接。
+
+
 
 ## if判断
 
@@ -66,7 +74,7 @@ mybatis核心,对sql语句进行灵活操作，通过表达式进行判断，对
 
 - 测试结果
 
-1.注释掉`testFindUserList()`方法中的`userCustom.setUsername("张三");`
+1.注释掉 `testFindUserList()` 方法中的 `userCustom.setUsername("张三");`
 
 
 ```java
@@ -93,7 +101,7 @@ DEBUG [main] - <==      Total: 6
 可以看到sql语句为`reparing: SELECT * FROM user WHERE user.sex=? `，没有username的部分
 
 
-2.`userQueryVo`设为null,则`userCustom`为null
+2.`userQueryVo` 设为null,则 `userCustom` 为null
 
 ```java
 //List<UserCustom> list = userMapper.findUserList(userQueryVo);
@@ -111,6 +119,7 @@ DEBUG [main] - <==      Total: 9
 ```
 
 可以看到sql语句变为了`SELECT * FROM user`
+
 
 
 ## sql片段(重点)
@@ -157,6 +166,8 @@ id：sql片段的唯 一标识
     </where>
 </select>
 ```
+
+
 
 ## foreach标签
 
