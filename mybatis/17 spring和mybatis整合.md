@@ -373,9 +373,3 @@ Caused by: java.lang.IllegalArgumentException
 总结起来就是java 8 和spring 3 不能一起用，我在IDEA的`project settings`里把`project language level`换成`7`就好了。具体原因还不清楚
 
 
-
-----
-
-> 作者[@brianway](http://brianway.github.io/)更多文章：[个人网站](http://brianway.github.io/) | [CSDN](http://blog.csdn.net/h3243212/) | [oschina](http://my.oschina.net/brianway)
-
-
