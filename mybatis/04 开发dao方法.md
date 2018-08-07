@@ -1,4 +1,4 @@
-﻿# mybatis学习笔记(4)-开发dao方法
+﻿# 04 开发dao方法
 
 标签： mybatis
 
@@ -46,9 +46,13 @@
 `SqlSession`最佳应用场合在方法体内，定义成局部变量使用。
 
 
+
+
 ## 原始dao开发方法
 
 程序员需要写dao接口和dao实现类
+
+需要向dao实现类中注入SqlSessionFactory，在方法体内通过SqlSessionFactory创建SqlSession
 
 ### dao接口
 
@@ -92,10 +96,9 @@ public class UserDaoImpl implements UserDao{
     }
 
 
-
     @Override
     public User findUserById(int id) throws Exception {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
+        SqlSession sqlSession = sqlSessionFactory.openSession(); // 线程不安全，写在方法体内
         User user = sqlSession.selectOne("test.findUserById",id);
         //释放资源
         sqlSession.close();
@@ -105,12 +108,9 @@ public class UserDaoImpl implements UserDao{
     @Override
     public List<User> findUserByName(String name) throws Exception {
         SqlSession sqlSession = sqlSessionFactory.openSession();
-
         List<User> list = sqlSession.selectList("test.findUserByName", name);
-
         // 释放资源
         sqlSession.close();
-
         return list;
     }
 
@@ -119,10 +119,8 @@ public class UserDaoImpl implements UserDao{
         SqlSession sqlSession = sqlSessionFactory.openSession();
         //执行插入操作
         sqlSession.insert("test.insertUser", user);
-
         // 提交事务
         sqlSession.commit();
-
         // 释放资源
         sqlSession.close();
     }
@@ -130,13 +128,10 @@ public class UserDaoImpl implements UserDao{
     @Override
     public void deleteUser(int id) throws Exception {
         SqlSession sqlSession = sqlSessionFactory.openSession();
-
         //执行插入操作
         sqlSession.delete("test.deleteUser", id);
-
         // 提交事务
         sqlSession.commit();
-
         // 释放资源
         sqlSession.close();
     }
@@ -195,11 +190,9 @@ public class UserDaoImplTest {
 
 ### 总结原始dao开发问题
 
-1.dao接口实现类方法中存在大量模板方法，设想能否将这些代码提取出来，大大减轻程序员的工作量。
-
-2.调用sqlsession方法时将statement的id硬编码了
-
-3.调用sqlsession方法时传入的变量，由于sqlsession方法使用泛型，即使变量类型传入错误，在编译阶段也不报错，不利于程序员开发。
+1. dao接口实现类方法中存在大量模板方法，设想能否将这些代码提取出来，大大减轻程序员的工作量。
+2. 调用sqlsession方法时将statement的id硬编码了
+3. 调用sqlsession方法时传入的变量，由于sqlsession方法使用泛型，即使变量类型传入错误，在编译阶段也不报错，不利于程序员开发。
 
 
 ## mapper代理方法
@@ -245,6 +238,7 @@ public User findUserById(int id) throws Exception;
 User user = sqlSession.selectOne("test.findUserById", id);
 sqlSession.insert("test.insertUser", user);
 ```
+
 
 
 ### 代码
@@ -419,11 +413,3 @@ public class UserMapperTest {
 mapper接口方法参数只能有一个，系统是否不利于扩展维护?系统框架中，dao层的代码是被业务层公用的。即使mapper接口只有一个参数，可以使用包装类型的pojo满足不同的业务方法的需求。
 
 注意：持久层方法的参数可以包装类型、map...等，service方法中建议不要使用包装类型（不利于业务层的可扩展）。
-
-
-
-----
-
-> 作者[@brianway](http://brianway.github.io/)更多文章：[个人网站](http://brianway.github.io/) | [CSDN](http://blog.csdn.net/h3243212/) | [oschina](http://my.oschina.net/brianway)
-
-
