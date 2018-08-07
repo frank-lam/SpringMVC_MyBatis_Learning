@@ -17,11 +17,7 @@ SpringMVC文档：
 
 
 
-
-
-
-
-##课程链接 
+## 课程链接 
 
 哔哩哔哩在线：
 
@@ -31,7 +27,7 @@ SpringMVC文档：
 
 ## 联系作者
 
-- 知乎：
-- CSDN：
-- Github：
-- 个人网站：
+- 知乎专栏：https://zhuanlan.zhihu.com/frankfeekr
+- CSDN：https://blog.csdn.net/u012104219
+- Github：https://github.com/frank-lam
+- Email：frank_lin@whu.edu.cn
