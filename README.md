@@ -1,5 +1,3 @@
-
-
 <div align="center"> <img src="imgs/logo2.png" width=""/></div><br/>
 
 
