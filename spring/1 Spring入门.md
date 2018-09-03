@@ -1,4 +1,20 @@
+<!-- TOC -->
 
+- [Spring概念](#spring概念)
+- [Spring的ioc操作](#spring的ioc操作)
+- [IOC底层原理](#ioc底层原理)
+- [IOC入门案例](#ioc入门案例)
+- [Spring的bean管理（xml方式）](#spring的bean管理xml方式)
+    - [Bean实例化的方式](#bean实例化的方式)
+    - [Bean标签常用属性](#bean标签常用属性)
+    - [属性注入介绍](#属性注入介绍)
+- [注入对象类型属性（重点）](#注入对象类型属性重点)
+- [P名称空间注入（了解）](#p名称空间注入了解)
+- [注入复杂类型属性](#注入复杂类型属性)
+- [IOC和DI区别](#ioc和di区别)
+- [Spring整合web项目原理](#spring整合web项目原理)
+
+<!-- /TOC -->
 ## Spring概念
 1. spring是开源的轻量级框架  
 2. spring核心主要两部分： 
