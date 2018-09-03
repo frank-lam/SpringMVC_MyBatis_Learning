@@ -19,6 +19,7 @@
 1. spring是开源的轻量级框架  
 
 2. spring核心主要两部分： 
+
     （1）aop：面向切面编程，扩展功能不是修改源代码实现 
 
     （2）ioc：控制反转  
@@ -27,7 +28,9 @@
     - 把对象的创建不是通过new方式实现，而是交给spring配置创建类对象  
 
 3. spring是一站式框架 
+
     （1）spring在javaee三层结构中，每一层都提供不同的解决技术  
+
     - web层：springMVC  
     - service层：spring的ioc  
     - dao层：spring的jdbcTemplate  
@@ -39,11 +42,13 @@
 1. 把对象的创建交给spring进行管理  
 
 2. ioc操作两部分： 
+
     （1）ioc的配置文件方式 
 
     （2）ioc的注解方式 
 ## IOC底层原理
 * ioc底层原理使用技术 
+
     （1）xml配置文件 
 
     （2）dom4j解析xml 
