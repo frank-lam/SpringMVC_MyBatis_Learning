@@ -17,9 +17,12 @@
 <!-- /TOC -->
 ## Spring概念
 1. spring是开源的轻量级框架  
+
 2. spring核心主要两部分： 
     （1）aop：面向切面编程，扩展功能不是修改源代码实现 
+
     （2）ioc：控制反转  
+
     - 比如有一个类，在类里面有方法（不是静态的方法），调用类里面的方法，创建类的对象，使用对象调用方法，创建类对象的过程，需要new出来对象  
     - 把对象的创建不是通过new方式实现，而是交给spring配置创建类对象  
 
@@ -28,19 +31,25 @@
     - web层：springMVC  
     - service层：spring的ioc  
     - dao层：spring的jdbcTemplate  
+
 4. spring版本 
     spring4.x  
 
 ## Spring的ioc操作
 1. 把对象的创建交给spring进行管理  
+
 2. ioc操作两部分： 
     （1）ioc的配置文件方式 
+
     （2）ioc的注解方式 
 ## IOC底层原理
 * ioc底层原理使用技术 
     （1）xml配置文件 
+
     （2）dom4j解析xml 
+
     （3）工厂设计模式 
+
     （4）反射 
     ![ioc过程](assets/ioc过程1.png) 
 
@@ -51,12 +60,13 @@
 1. 导入jar包 
     做基础功能时core Container只需要Beans、Core、Context、SpEL四个jar包  
     同时导入支持日志输出的jar包：log4j-1.2.jar和commons-logging-1.2.jar  
+
 2. 创建类，在类里面创建方法  
     ```java
     package me.test.ioc;
-
+    
     public class User {
-
+    
         public void add() {
             System.out.println("add........");
         }
@@ -64,31 +74,35 @@
     ```
     （1）spring核心配置文件名称和位置不是固定的  
     - 建议放到src下面，官方建议applicationContext.xml  
-    
+
     （2）引入schema约束  
-    spring-framework-4.3.9.RELEASE\docs\spring-framework-reference\html\xsd-configuration.html文件中去找（从后往前找）
+
+    - spring-framework-4.3.9.RELEASE\docs\spring-framework-reference\html\xsd-configuration.html文件中去找（从后往前找）
+
     ```xml
     <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     ```
+
 3. 创建spring配置文件，配置创建类  
     ```xml
     <!-- ioc入门 -->
     <bean id="user" class="me.test.ioc.User"></bean>
     ```
+
 4. 写代码测试对象创建  
     这段代码在测试中使用，实际开发不会这样使用  
     ```java
     package me.test.ioc;
-
+    
     import org.junit.Test;
     import org.springframework.context.ApplicationContext;
     import org.springframework.context.support.ClassPathXmlApplicationContext;
-
+    
     public class IOCTest {
-
+    
         @Test
         public void userTest() {
             //1加载spring配置文件，根据配置文件创建对象
@@ -99,7 +113,7 @@
             user.add();
         }
     }
-
+    
     /*结果：
     me.test.ioc.User@35d176f7
     add........ */
@@ -108,37 +122,42 @@
 ### Bean实例化的方式  
 
 1. 在spring里面通过配置文件 创建对象
-
 2. bean实例化（创建对象）三种方式实现 
-    **（1）使用类的无参数构造创建（重点，最常用）** 
-    通过配置文件Spring会去找类中的无参构造函数创建对象 
-    类中如果没有无参构造函数，会出现异常：No default  constructor found  
 
-    **（2）使用静态工厂创建** 
-    创建静态的方法，返回类对象 
-    bean实体
+**（1）使用类的无参数构造创建（重点，最常用）** 
 
-    ```java
-    public class bean2 {
-        public void add(){
-            System.out.println("bean2........");
-        }
+通过配置文件Spring会去找类中的无参构造函数创建对象 
+
+类中如果没有无参构造函数，会出现异常：No default  constructor found  
+
+**（2）使用静态工厂创建** 
+创建静态的方法，返回类对象 
+
+bean实体
+
+```java
+public class bean2 {
+    public void add(){
+        System.out.println("bean2........");
     }
-    ```
-    工厂类
-    ```java
-    public class Bean2Factory {
-    	//静态的方法，返回Bean2对象
-    	public static bean2 getBean2(){
-    		return new bean2();
-    	}
-    }
-    ```
-    spring配置
-    ```xml
-    <!-- 使用静态工厂创建对象 -->
-    <bean id="bean2" class="bean.Bean2Factory" factory-method="getBean2"></bean>
-    ```
+}
+```
+
+工厂类
+```java
+public class Bean2Factory {
+	//静态的方法，返回Bean2对象
+	public static bean2 getBean2(){
+		return new bean2();
+	}
+}
+```
+
+spring配置
+```xml
+<!-- 使用静态工厂创建对象 -->
+<bean id="bean2" class="bean.Bean2Factory" factory-method="getBean2"></bean>
+```
 
 **（3）使用实例工厂创建** 
 
