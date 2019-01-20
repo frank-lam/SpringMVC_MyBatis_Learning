@@ -69,7 +69,7 @@ SpringMVC文档：
 
 哔哩哔哩在线：
 
-- [SpringMvc+Mybatis由浅入深全套视频教程（完整版）](https://www.bilibili.com/video/av21901888)
+- [SpringMvc+Mybatis由浅入深全套视频教程（完整版）](https://www.bilibili.com/video/av27573870)
 
 
 
