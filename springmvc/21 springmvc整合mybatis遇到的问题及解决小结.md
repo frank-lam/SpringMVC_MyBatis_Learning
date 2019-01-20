@@ -162,8 +162,8 @@ spring版本统一设置
 我一看自己的target目录,发现还真是少mapper.xml文件
 
 ![target少mapper的xml文件](http://7xph6d.com1.z0.glb.clouddn.com/springmvc_bug_target%E5%B0%91xml%E6%96%87%E4%BB%B6.png)
-  
-  
+
+
 我想到了两种解决方案：
 
 - 方案一：自定义一个插件，绑定某个生命周期，比如compile，然后插件目标的功能是将源码包下的xml文件copy到相应的输出目录。(现有插件是否有已有这个功能，通过简单的配置就能完成？我还不清楚)
@@ -390,9 +390,3 @@ debug窗里报下面的错误：
 ```
 
 总之，上面未解决的问题，我会留意，如果有大神指导原因，请不吝赐教。
-
-
-----
-
-> 作者[@brianway](http://brianway.github.io/)更多文章：[个人网站](http://brianway.github.io/) `|` [CSDN](http://blog.csdn.net/h3243212/) `|` [oschina](http://my.oschina.net/brianway)
-

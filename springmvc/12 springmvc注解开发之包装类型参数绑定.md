@@ -60,11 +60,3 @@ public class ItemsQueryVo {
 可见，`ItemsQueryVo`中属性`itemsCustom`和页面参数中一致
 
 
-
-----
-
-> 作者[@brianway](http://brianway.github.io/)更多文章：[个人网站](http://brianway.github.io/) `|` [CSDN](http://blog.csdn.net/h3243212/) `|` [oschina](http://my.oschina.net/brianway)
-
-
-
-

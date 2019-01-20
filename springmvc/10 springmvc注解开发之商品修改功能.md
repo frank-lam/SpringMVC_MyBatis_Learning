@@ -212,8 +212,9 @@ public class ItemsController {
 
 报错，状态码405：
 
+![1547948554726](assets/1547948554726.png)
 
-![GET拒绝](http://7xph6d.com1.z0.glb.clouddn.com/springmvc_%E9%99%90%E5%88%B6http%E8%AF%B7%E6%B1%82-GET%E6%8B%92%E7%BB%9D.png)
+
 
 
 ## controller方法的返回值
@@ -291,8 +292,3 @@ response.setCharacterEncoding("utf-8");
 response.setContentType("application/json;charset=utf-8");
 response.getWriter().write("json串");
 ```
-
-
-----
-
-> 作者[@brianway](http://brianway.github.io/)更多文章：[个人网站](http://brianway.github.io/) `|` [CSDN](http://blog.csdn.net/h3243212/) `|` [oschina](http://my.oschina.net/brianway)

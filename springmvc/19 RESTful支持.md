@@ -102,9 +102,7 @@ public @ResponseBody ItemsCustom itemsView(@PathVariable("id") Integer items_id)
 ```
 
 
-访问结果如图：
 
-![RESTful格式访问](http://7xph6d.com1.z0.glb.clouddn.com/springmvc_RESTful%E6%A0%BC%E5%BC%8F%E8%AE%BF%E9%97%AE.png)
 
 
 ## 对静态资源的解析
@@ -122,20 +120,3 @@ public @ResponseBody ItemsCustom itemsView(@PathVariable("id") Integer items_id)
 ```
 
 这时访问`http://localhost:8080/ssm1/js/jquery-1.4.4.min.js`，可以在浏览器中看到js的内容
-
-
-----
-
-> 作者[@brianway](http://brianway.github.io/)更多文章：[个人网站](http://brianway.github.io/) `|` [CSDN](http://blog.csdn.net/h3243212/) `|` [oschina](http://my.oschina.net/brianway)
-
-
-
-
-
-
-
-
-
-
-
-
